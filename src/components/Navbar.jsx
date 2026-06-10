@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
-import logoEmpresa from '../assets/logo.png';
+import logoEmpresa from '../assets/Logo.png';
 import './Navbar.css';
 
 const Navbar = () => {
