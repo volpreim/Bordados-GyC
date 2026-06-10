@@ -8,6 +8,7 @@ import { Shirt, Scissors, Brush, Wind, Layers, Award, Monitor, Zap, PenTool, Che
 import imgUniforme from "../assets/uniforme.jpg";
 import "./Home.css";
 import GlareHover from "../components/GlareHover/GlareHover";
+import Logo from "../assets/Logo.png";
 
 const Home = () => {
   
@@ -268,7 +269,7 @@ const pasosRoadmap = [
           </div>
 
           <div className="about-image">
-            <img src="/src/assets/Logo.png" alt="Logo Bordados G & C" />
+            <img src={Logo} alt="Logo Bordados G & C" />
           </div>
         </div>
       </section>
