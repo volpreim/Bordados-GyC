@@ -1,0 +1,613 @@
+/* =============================================
+   NAVBAR - BORDADOS G & C
+   ============================================= */
+
+/* 1. Contenedor Principal */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 10%;
+  transition: all 0.4s ease;
+  z-index: 1000;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.068);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.navbar.scrolled {
+  background: transparent;
+  padding: 20px 12%;
+  border-bottom: 1px solid var(--iron-gold);
+}
+
+/* 2. Logo */
+.nav-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-logo-img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo-container:hover .nav-logo-img {
+  transform: scale(1.05);
+}
+
+.nav-logo-text {
+  font-family: var(--font-main);
+  font-size: 1.0rem;
+  color: var(--palette-blue);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar.scrolled .nav-logo-img {
+  height: 60px;
+}
+
+.navbar.scrolled .nav-logo-text {
+  font-size: 1.0rem;
+  color: var(--palette-white);
+}
+
+/* 3. Zona central: links + perfil juntos */
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* 4. Links de navegación */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--palette-blue);
+  font-family: var(--font-main);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+  display: block;
+}
+
+.nav-links a:hover,
+.navbar.scrolled .nav-links a:hover {
+  color: var(--iron-gold) !important;
+  text-shadow: 0 0 10px var(--gold-glow);
+  transform: translateY(-2px);
+}
+
+.navbar.scrolled .nav-links a {
+  color: #ffffff;
+}
+
+/* 5. Botón LOGIN */
+.btn-login {
+  background: linear-gradient(to bottom, var(--palette-white) 0%, var(--palette-pink) 100%);
+  color: var(--palette-white);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 15px 30px;
+  border-radius: 4px;
+  border: 1px solid var(--gold-glow);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.btn-login:hover {
+  background: linear-gradient(to bottom, var(--palette-black) 0%, var(--palette-white) 100%);
+  border-radius: 5px 25px;
+  color: var(--palette-pink);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+/* 6. Perfil de usuario — dentro del flujo del menú */
+.user-profile-container {
+  position: relative;
+  list-style: none;
+  flex-shrink: 0;
+}
+
+.user-profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.user-profile-trigger:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.user-avatar-circle {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #ff0055, #ffcc00);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.user-name-min {
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  color: var(--palette-white);
+  letter-spacing: 1px;
+}
+
+.btn-perfil-wa {
+  
+  background-color: #25d366;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  /* ... tus otros estilos */
+}
+
+/* 7. Panel desplegable del perfil */
+.profile-dropdown-panel {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  width: 230px;
+  background: rgba(15, 15, 20, 0.97);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 204, 0, 0.3);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+  z-index: 1100;
+  animation: dropSlide 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: top right;
+}
+
+@keyframes dropSlide {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.dropdown-header {
+  overflow: hidden;
+}
+
+.dropdown-header h4 {
+  margin: 5px 0 0 0;
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.dropdown-header span {
+  display: block;
+  font-size: 0.75rem;
+  color: #888;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+  max-width: 100%;
+}
+
+.status-badge {
+  font-size: 0.6rem;
+  color: #00ff88;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 15px 0;
+}
+
+.dropdown-menu {
+  padding: 0;
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 8px 0;
+  color: #ccc;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.dropdown-menu li a:hover {
+  color: #ffcc00;
+  transform: translateX(5px);
+}
+
+.btn-logout-panel {
+  width: 100%;
+  padding: 10px;
+  background: rgba(255, 50, 50, 0.1);
+  border: 1px solid #ff3232;
+  color: #ff3232;
+  border-radius: 6px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-logout-panel:hover {
+  background: #ff3232;
+  color: white;
+}
+
+/* 8-A. Login desktop/mobile — evita duplicación */
+.nav-login-desktop {
+  flex-shrink: 0;
+}
+
+/* En desktop, el login dentro del ul está oculto */
+.nav-links .nav-login-mobile {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  /* En mobile mostramos el del ul y ocultamos el de fuera */
+  .nav-login-desktop {
+    display: none;
+  }
+  .nav-links .nav-login-mobile {
+    display: block;
+  }
+}
+
+/* 8. Botón hamburguesa */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+  z-index: 1200;
+  padding: 6px;
+}
+
+.nav-toggle span {
+  width: 28px;
+  height: 2px;
+  background: var(--iron-gold);
+  border-radius: 2px;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center;
+}
+
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* =============================================
+   RESPONSIVE — TABLET Y MÓVIL (≤ 1024px)
+   ============================================= */
+@media (max-width: 1024px) {
+
+  .nav-toggle {
+    display: flex;
+    order: 3;
+  }
+
+  /* El nav-center se convierte en el panel mobile */
+  .nav-center {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    background: rgba(8, 8, 12, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 204, 0, 0.15);
+
+    /* Estado cerrado — clip-path oculta el contenido */
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    pointer-events: none;
+    transition: clip-path 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .nav-center.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    pointer-events: all;
+  }
+
+  /* Links en columna dentro del panel */
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0;
+    padding: 20px 0 10px;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 14px 20px;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #ffffff !important;
+  }
+
+  .nav-links a:hover {
+    background: rgba(255, 204, 0, 0.05);
+  }
+
+  /* Perfil integrado en el panel mobile */
+  .user-profile-container {
+    width: 100%;
+    padding: 12px 20px 20px;
+    box-sizing: border-box;
+  }
+
+  .user-profile-trigger {
+    justify-content: center;
+    border-radius: 10px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 204, 0, 0.15);
+  }
+
+  .user-name-min {
+    display: block;
+  }
+
+  /* Panel del perfil — centrado horizontalmente */
+  .profile-dropdown-panel {
+    position: static;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 12px;
+    animation: dropSlide 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    transform-origin: top center;
+  }
+
+  /* Login dentro del menú mobile */
+  .nav-links .btn-login {
+    display: inline-block;
+    margin: 8px auto 16px;
+  }
+}
+
+/* =============================================
+   TABLET (769px — 1024px)
+   ============================================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-links a {
+    font-size: 1.15rem;
+    letter-spacing: 4px;
+    padding: 18px 20px;
+  }
+
+  .nav-logo-text {
+    font-size: 1.05rem;
+  }
+
+  .navbar {
+    padding: 18px 6%;
+  }
+}
+
+/* =============================================
+   MÓVIL VERTICAL (≤ 768px)
+   ============================================= */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 16px 5%;
+    height: 70px;
+  }
+
+  .nav-logo-img {
+    height: 48px;
+  }
+
+  .nav-logo-text {
+    font-size: 0.82rem;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    padding: 13px 20px;
+  }
+}
+
+/* =============================================
+   MÓVIL PEQUEÑO (≤ 480px)
+   ============================================= */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 14px 4%;
+    height: 64px;
+  }
+
+  .nav-logo-text {
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-logo-img {
+    height: 42px;
+  }
+
+  .nav-links a {
+    font-size: 0.88rem;
+    padding: 12px 16px;
+  }
+}
+
+/* =============================================
+   MÓVIL HORIZONTAL / LANDSCAPE (altura ≤ 500px)
+   ============================================= */
+@media (max-height: 500px) and (orientation: landscape) {
+
+  .navbar {
+    height: 56px;
+    padding: 10px 5%;
+  }
+
+  .nav-logo-img {
+    height: 38px;
+  }
+
+  /* El panel horizontal scroll interno */
+  .nav-center {
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+
+  .nav-center::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  .nav-center::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .nav-center::-webkit-scrollbar-thumb {
+    background: var(--iron-gold, #ffcc00);
+    border-radius: 10px;
+  }
+
+  /* Links en fila compacta */
+  .nav-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+    padding: 8px 12px;
+    gap: 0;
+  }
+
+  .nav-links li {
+    width: auto;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    padding: 8px 14px;
+    border-bottom: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-links li:last-child a {
+    border-right: none;
+  }
+
+  /* Perfil compacto en landscape */
+  .user-profile-container {
+    width: auto;
+    padding: 8px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .user-profile-trigger {
+    padding: 6px 12px;
+  }
+
+  .profile-dropdown-panel {
+    width: 420px;
+    max-width: 85vw;
+    padding: 14px 16px;
+  }
+
+  .dropdown-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 16px;
+    margin-bottom: 10px;
+  }
+
+  .dropdown-divider {
+    margin: 10px 0;
+  }
+
+  .dropdown-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .dropdown-header h4 {
+    margin: 0;
+    font-size: 0.85rem;
+  }
+
+  .btn-logout-panel {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+}

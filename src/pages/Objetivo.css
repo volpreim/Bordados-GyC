@@ -1,0 +1,475 @@
+/* --- CONTENEDOR RAIZ --- */
+.objetivos-container {
+  background-color: #050505;
+  color: #fff;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* --- HERO DE OBJETIVOS (MISSION CONTROL) --- */
+.mission-hero {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  
+  /* Fondo con profundidad y viñeta */
+  background-image: 
+    radial-gradient(circle at center, transparent 0%, rgba(5, 5, 5, 0.9) 100%),
+    linear-gradient(to bottom, rgba(5, 5, 5, 0.3), rgba(5, 5, 5, 1)),
+    url("../assets/Header_nosotros.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Línea de escaneo láser dorada */
+.mission-scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--iron-gold);
+  box-shadow: 0 0 15px var(--iron-gold);
+  z-index: 5;
+  animation: scanMission 6s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes scanMission {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+.mission-content-frame {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.mission-tag-status {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--iron-gold);
+  font-size: 0.7rem;
+  letter-spacing: 5px;
+  display: block;
+  margin-bottom: 25px;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.mission-title-display {
+  /* Tamaño fluido sin romper el responsive */
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: clamp(4px, 2vw, 15px);
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 3px 3px 0px var(--iron-gold), 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Divisor tecnológico con punto central */
+.mission-divider-tech {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px auto;
+  max-width: 400px;
+}
+
+.mission-divider-tech .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--iron-gold), transparent);
+}
+
+.mission-divider-tech .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--iron-gold);
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px var(--iron-gold);
+}
+
+.mission-subtitle-display {
+  font-family: 'Rajdhani', sans-serif;
+  color: #888;
+  font-size: clamp(0.9rem, 2vw, 1.3rem);
+  letter-spacing: clamp(3px, 1vw, 10px);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .mission-hero {
+    height: 95vh;
+  }
+  .mission-title-display {
+    letter-spacing: 3px;
+  }
+  .mission-divider-tech {
+    max-width: 250px;
+  }
+}
+/* --- SECCIÓN PORTAFOLIO --- */
+.portfolio-wrapper {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 80px 5%;
+}
+
+.objetivos-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.header-tag {
+  color: var(--iron-gold);
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 4px;
+  font-size: 0.75rem;
+}
+
+.header-main-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  margin: 20px 0;
+}
+
+.header-line {
+  width: 60px;
+  height: 3px;
+  background: var(--iron-gold);
+  margin: 25px auto 0;
+}
+
+/* --- FILTROS --- */
+.filter-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  color: #666;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-bottom: 2px solid transparent;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  color: var(--iron-gold);
+  border-bottom-color: var(--iron-gold);
+}
+
+/* --- GRILLA Y CARDS --- */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 4fr));
+  gap: 40px;
+}
+
+.product-card {
+  background: #0a0a0a;
+  border-radius: 12px;
+  border: 1px solid #1a1a1a;
+  overflow: hidden;
+  transition: 0.4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--iron-gold);
+}
+
+.product-image {
+  height: 280px;
+  position: relative;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.category-label {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0,0,0,0.85);
+  color: var(--iron-gold);
+  padding: 5px 12px;
+  font-size: 0.65rem;
+  font-family: 'Orbitron', sans-serif;
+  border: 1px solid var(--iron-gold);
+}
+
+.product-info {
+  padding: 25px;
+}
+
+.product-info h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.product-info p {
+  font-family: 'Rajdhani', sans-serif;
+  color: #888;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+/* --- BOTÓN WHATSAPP --- */
+.btn-whatsapp-order {
+  width: 100%;
+  background: #111;
+  border: 1px solid #222;
+  color: #fff;
+  padding: 15px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  transition: 0.3s;
+}
+
+.btn-whatsapp-order:hover {
+  background: #25D366;
+  border-color: #25D366;
+  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.2);
+}
+
+/* --- CONFIGURACIÓN DEL PANEL FINAL --- */
+.main-footer {
+  background-color: #050505;
+  color: #ffffff;
+  padding: 100px 8% 40px;
+  /* Línea de energía superior con pulso */
+  border-top: 1px solid rgba(255, 215, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de rejilla técnica solo para el footer */
+.main-footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: 
+    radial-gradient(circle at 2px 2px, rgba(255, 215, 0, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- LOGO CON BRILLO --- */
+.footer-logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 5px;
+  margin-bottom: 25px;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.footer-logo span {
+  color: var(--iron-gold);
+  position: relative;
+}
+
+/* --- ENLACES ESTILO INTERFAZ --- */
+.footer-title {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--iron-gold);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.footer-list li {
+  margin-bottom: 15px;
+  font-family: 'Rajdhani', sans-serif;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.footer-list a {
+  color: #888;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Efecto al pasar el mouse por los links */
+.footer-list li:hover {
+  transform: translateX(10px);
+}
+
+.footer-list li:hover a {
+  color: var(--iron-gold);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+/* Punto de mira antes de cada link en el hover */
+.footer-list li::before {
+  content: '>';
+  color: var(--iron-gold);
+  margin-right: 10px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.footer-list li:hover::before {
+  opacity: 1;
+}
+
+/* --- INDICADOR DE STATUS (NEÓN VERDE) --- */
+.status-online {
+  background: rgba(0, 255, 136, 0.05);
+  padding: 10px 15px;
+  border-radius: 4px;
+  border-left: 3px solid #00ff88;
+  display: inline-block;
+  animation: pulseStatus 2s infinite;
+}
+
+@keyframes pulseStatus {
+  0% { box-shadow: 0 0 0px rgba(0, 255, 136, 0); }
+  50% { box-shadow: 0 0 15px rgba(0, 255, 136, 0.2); }
+  100% { box-shadow: 0 0 0px rgba(0, 255, 136, 0); }
+}
+
+/* --- BARRA FINAL --- */
+.footer-bottom {
+  margin-top: 80px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  color: #555;
+  letter-spacing: 2px;
+}
+
+.footer-signature {
+  background: rgba(255, 215, 0, 0.05);
+  padding: 5px 15px;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  border-radius: 20px;
+}
+
+.highlight {
+  color: var(--iron-gold);
+  font-weight: 900;
+  text-shadow: 0 0 5px var(--iron-gold);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* Tablets y Laptops pequeñas (menos de 1024px) */
+@media (max-width: 1024px) {
+  .footer-top {
+    gap: 40px; /* Reducimos el espacio entre columnas */
+    grid-template-columns: 1.5fr 1fr 1fr; /* Ajuste de proporciones */
+  }
+}
+
+/* Celulares (menos de 768px) */
+@media (max-width: 768px) {
+  .main-footer {
+    padding: 60px 5% 30px; /* Menos espacio en los bordes */
+    text-align: center; /* Centramos todo para mejor lectura en móvil */
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr; /* Una sola columna vertical */
+    gap: 50px;
+  }
+
+  .footer-description {
+    margin: 0 auto; 
+    max-width: 100%;
+  }
+
+  .footer-list li {
+    justify-content: center; 
+  }
+
+  .footer-list li:hover {
+    transform: translateY(-3px); 
+  }
+
+  .footer-title {
+    margin: 0 auto 25px; 
+  }
+
+  .footer-bottom {
+    flex-direction: column; 
+    gap: 20px;
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .footer-signature {
+    width: fit-content;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-logo {
+    font-size: 1.4rem;
+  }
+  
+  .footer-main-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* --- RESPONSIVE EXTRA --- */
+@media (max-width: 768px) {
+  .nosotros-hero { height: 50vh; }
+  .portfolio-wrapper { padding: 50px 20px; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+}

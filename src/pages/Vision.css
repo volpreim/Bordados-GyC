@@ -1,0 +1,538 @@
+.mv-page {
+    background-color: #050505;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* --- HERO DE VISIÓN --- */
+.vision-hero {
+  height: 100vh; /* Un poco más corto para invitar a bajar a leer los textos */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  
+  /* Fondo con profundidad: Gradiente oscuro que sube desde abajo */
+  background-image: 
+    linear-gradient(to top, rgba(5, 5, 5, 1) 0%, rgba(5, 5, 5, 0.4) 100%),
+    url("../assets/Header_nosotros.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.vision-scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--iron-gold);
+  box-shadow: 0 0 15px var(--iron-gold);
+  z-index: 5;
+  animation: scanMission 6s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes scanMission {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+/* Capa de viñeta para centrar la atención */
+.vision-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.7) 100%);
+  pointer-events: none;
+}
+
+.vision-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 20px;
+}
+
+
+
+.vision-tag {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--iron-gold);
+  font-size: 0.7rem;
+  letter-spacing: 6px;
+  display: block;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.vision-title-main {
+  /* Usamos clamp para que el tamaño sea dinámico según la pantalla */
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(2.2rem, 8vw, 5.5rem); 
+  font-weight: 900;
+  /* Espaciado de letras que se ajusta automáticamente */
+  letter-spacing: clamp(4px, 2vw, 15px);
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+  /* Efecto de relieve dorado */
+  text-shadow: 3px 3px 0px var(--iron-gold), 
+               0 0 30px rgba(255, 217, 4, 0.2);
+}
+
+.vision-divide {
+  width: 80px;
+  height: 2px;
+  background: var(--iron-gold);
+  margin: 25px auto;
+  box-shadow: 0 0 15px var(--iron-gold);
+}
+
+.vision-subtitle {
+  font-family: 'Rajdhani', sans-serif;
+  color: #888;
+  font-size: clamp(0.8rem, 2vw, 1.3rem);
+  letter-spacing: clamp(3px, 1.5vw, 10px);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* --- RESPONSIVE QUIRÚRGICO --- */
+@media (max-width: 768px) {
+  .vision-hero {
+    height: 95vh; /* Más compacto en móvil */
+  }
+  
+  .vision-title-main {
+    letter-spacing: 4px; /* Evita que el texto se salga de los bordes */
+  }
+
+  .vision-subtitle {
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+  }
+
+  .vision-divide {
+    width: 50px;
+    margin: 15px auto;
+  }
+}
+
+.mv-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 10%;
+    position: relative;
+}
+
+.mv-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1300px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.mv-container.reverse {
+    direction: rtl;
+    /* Invierte el orden de las columnas */
+}
+
+.mv-container.reverse .mv-content {
+    direction: ltr;
+    /* Devuelve el texto a la normalidad */
+}
+
+/* --- ESTILO MISIÓN (DARK TECH) --- */
+.mision-block {
+    background: linear-gradient(135deg, #61616163 0%, #050505 100%);
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.mv-tag {
+    font-family: "Orbitron", sans-serif;
+    color: #c7c7c7;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--iron-gold);
+    padding: 10px;
+}
+
+.mv-title {
+    font-family: var(--font-main);
+    font-size: 4rem;
+    margin: 20px 0;
+    letter-spacing: 6px;
+}
+
+.mv-title span {
+    color: var(--palette-pink);
+}
+
+.mv-text {
+    font-family: "Rajdhani", sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: #aaa;
+}
+
+/* --- ESTILO VISIÓN (GOLD TECH) --- */
+.vision-block {
+    background: radial-gradient(circle at top right,
+            rgba(255, 217, 0, 0.089),
+            transparent);
+}
+
+.mv-icon-gold {
+    color: var(--iron-gold);
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
+}
+
+/* --- ELEMENTOS VISUALES (DECORACIÓN) --- */
+.mv-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.image-cut-mision {
+    width: 100%;
+    height: 400px;
+    background: #111 url("../assets/Mision.jfif") center/cover;
+    clip-path: polygon(10% 0,
+            100% 0,
+            90% 100%,
+            0% 100%);
+    /* Forma de trapecio tech */
+    border: 1px solid var(--iron-gold);
+}
+
+.image-cut-vision {
+    width: 100%;
+    height: 400px;
+    background: #111 url("../assets/vision.jfif") center/cover;
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);
+    /* Forma invertida */
+    border: 1px solid var(--iron-gold);
+}
+
+/* --- FEATURES --- */
+.mv-features {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.feature,
+.feature-gold {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.8rem;
+    padding: 10px 20px;
+    border-radius: 4px;
+    letter-spacing: 2px;
+}
+
+.feature {
+    background: rgba(43, 43, 43, 0.452);
+    color: #f3f3f3;
+    border: 1px solid #d1d1d1;
+}
+
+.feature-gold {
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--iron-gold);
+    border: 1px solid var(--iron-gold);
+}
+
+.mv-carousel-container {
+    padding: 100px 0;
+    background: #050505;
+    position: relative;
+}
+
+/* Tarjeta personalizada dentro del Loop */
+.pillar-card-loop {
+    width: 320px;
+    /* Ancho fijo necesario para el cálculo del componente */
+    background: linear-gradient(145deg, #0a0a0a, #0d0d0d);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    transition: border 0.3s ease;
+}
+
+.pillar-card-loop:hover {
+    border-color: var(--iron-gold);
+}
+
+.pillar-icon {
+    color: var(--iron-gold);
+    flex-shrink: 0;
+}
+
+.pillar-info h4 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: #fff;
+    margin: 0 0 5px 0;
+}
+
+.pillar-info p {
+    font-family: "Rajdhani", sans-serif;
+    font-size: 0.9rem;
+    color: #bdbdbd;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.pillar-scan-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--iron-gold);
+    transition: width 0.4s ease;
+    box-shadow: 0 0 10px var(--iron-gold);
+}
+
+.pillar-card-loop:hover .pillar-scan-line {
+    width: 100%;
+}
+
+/* --- CONFIGURACIÓN DEL PANEL FINAL --- */
+.main-footer {
+  background-color: #050505;
+  color: #ffffff;
+  padding: 100px 8% 40px;
+  /* Línea de energía superior con pulso */
+  border-top: 1px solid rgba(255, 215, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de rejilla técnica solo para el footer */
+.main-footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: 
+    radial-gradient(circle at 2px 2px, rgba(255, 215, 0, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- LOGO CON BRILLO --- */
+.footer-logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 5px;
+  margin-bottom: 25px;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.footer-logo span {
+  color: var(--iron-gold);
+  position: relative;
+}
+
+/* --- ENLACES ESTILO INTERFAZ --- */
+.footer-title {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--iron-gold);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.footer-list li {
+  margin-bottom: 15px;
+  font-family: 'Rajdhani', sans-serif;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.footer-list a {
+  color: #888;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Efecto al pasar el mouse por los links */
+.footer-list li:hover {
+  transform: translateX(10px);
+}
+
+.footer-list li:hover a {
+  color: var(--iron-gold);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+/* Punto de mira antes de cada link en el hover */
+.footer-list li::before {
+  content: '>';
+  color: var(--iron-gold);
+  margin-right: 10px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.footer-list li:hover::before {
+  opacity: 1;
+}
+
+/* --- INDICADOR DE STATUS (NEÓN VERDE) --- */
+.status-online {
+  background: rgba(0, 255, 136, 0.05);
+  padding: 10px 15px;
+  border-radius: 4px;
+  border-left: 3px solid #00ff88;
+  display: inline-block;
+  animation: pulseStatus 2s infinite;
+}
+
+@keyframes pulseStatus {
+  0% { box-shadow: 0 0 0px rgba(0, 255, 136, 0); }
+  50% { box-shadow: 0 0 15px rgba(0, 255, 136, 0.2); }
+  100% { box-shadow: 0 0 0px rgba(0, 255, 136, 0); }
+}
+
+/* --- BARRA FINAL --- */
+.footer-bottom {
+  margin-top: 80px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  color: #555;
+  letter-spacing: 2px;
+}
+
+.footer-signature {
+  background: rgba(255, 215, 0, 0.05);
+  padding: 5px 15px;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  border-radius: 20px;
+}
+
+.highlight {
+  color: var(--iron-gold);
+  font-weight: 900;
+  text-shadow: 0 0 5px var(--iron-gold);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* Tablets y Laptops pequeñas (menos de 1024px) */
+@media (max-width: 1024px) {
+  .footer-top {
+    gap: 40px; /* Reducimos el espacio entre columnas */
+    grid-template-columns: 1.5fr 1fr 1fr; /* Ajuste de proporciones */
+  }
+}
+
+/* Celulares (menos de 768px) */
+@media (max-width: 768px) {
+  .main-footer {
+    padding: 60px 5% 30px; /* Menos espacio en los bordes */
+    text-align: center; /* Centramos todo para mejor lectura en móvil */
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr; /* Una sola columna vertical */
+    gap: 50px;
+  }
+
+  .footer-description {
+    margin: 0 auto; 
+    max-width: 100%;
+  }
+
+  .footer-list li {
+    justify-content: center; 
+  }
+
+  .footer-list li:hover {
+    transform: translateY(-3px); 
+  }
+
+  .footer-title {
+    margin: 0 auto 25px; 
+  }
+
+  .footer-bottom {
+    flex-direction: column; 
+    gap: 20px;
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .footer-signature {
+    width: fit-content;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-logo {
+    font-size: 1.4rem;
+  }
+  
+  .footer-main-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+
+    .mv-container,
+    .mv-container.reverse {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .mv-features {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .mv-visual {
+        order: -1;
+    }
+}

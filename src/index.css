@@ -1,0 +1,29 @@
+/* 1. Reset Global: Eliminamos márgenes y rellenos que los navegadores ponen por defecto 🧹 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Esto asegura que el padding no ensanche tus elementos 📏 */
+}
+
+/* 2. Estructura de Pantalla Completa: Preparamos el escenario para el Hero 🎬 */
+html, body {
+  width: 100%;
+  min-height: 100%;
+  /* Importante: overflow-x evita que la página "baile" hacia los lados 🚫↔️ */
+  overflow-x: hidden; 
+}
+
+/* 3. El Contenedor de React (#root): Debe ocupar todo el espacio disponible ⚛️ */
+#root {
+  width: 100%;
+  min-height: 100%;
+  /* Eliminamos el centrado de Vite para que el Navbar se pegue arriba 🔝 */
+  display: block; 
+}
+
+/* 4. Tipografía y suavizado: Para que los textos se vean profesionales 🖋️ */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
